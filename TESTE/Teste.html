@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <h2>Calcular Reajuste Salarial</h2>
+    <p id="resultado"></p>
+    
+    <script>
+        function calcularReajuste(salario, percentual) {
+            var reajuste = salario * (percentual / 100);
+            var novoSalario = salario + reajuste;
+            return novoSalario;
+        }
+    
+        var salario = parseFloat(prompt("Digite o salário atual:"));
+        var percentual = 10; 
+        var novoSalario = calcularReajuste(salario, percentual);
+        document.getElementById('resultado').innerText = 'Novo Salário: R$ ' + novoSalario.toFixed(2);
+        
+    </script>
+    

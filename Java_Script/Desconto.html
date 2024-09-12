@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+    
+    <title>Desconto</title>
+
+    <script>
+            function Desc(){
+
+                var produto = prompt("Que produto voce esta comprando");
+
+                var valorOriginal = parseFloat(prompt(" Qual e o preço de " + produto + " ? " ));
+
+                let desconto = (valorOriginal * 0.10).toFixed(2);
+                let valorComDesconto = (valorOriginal - desconto).toFixed(2);
+
+                document.getElementById("titulo").innerHTML = "Calculando desconto de 10% para " + produto + ". <br>";
+                document.getElementById("sub").innerHTML = " Voce acaba de ganhar  " + valorComDesconto + " De desconto (-10%). <br>";
+                document.getElementById("paragrafo").innerHTML = "O valor original era R$" + valorOriginal.toFixed(2) + ", mas com o desconto de 10%, fica R$" + valorComDesconto;
+
+               
+
+            }
+
+            
+            
+            
+    </script>
+
+</head>
+<body>
+    
+    <h1 id="titulo"></h1>
+    <p id="sub"></p>
+    <p id="paragrafo"></p>
+
+     <button onclick="Desc()">Desconto de 10%</button>
+
+</body>
+</html>
+
