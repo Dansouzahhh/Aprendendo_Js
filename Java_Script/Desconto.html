@@ -1,41 +1,27 @@
 <!DOCTYPE html>
-
+<html lang="pt-BR">
 <head>
-    
-    <title>Desconto</title>
-
+    <meta charset="UTF-8">
+    <title>Reajuste Salarial</title>
     <script>
-            function Desc(){
+        function calcularReajuste() {
+            var nome = prompt("Qual é o nome do funcionário?");
+            var salarioAtual = parseFloat(prompt("Qual é o salário atual de " + nome + "?"));
+            var percentualAumento = parseFloat(prompt("Qual é o percentual de aumento?"));
 
-                var produto = prompt("Que produto voce esta comprando");
+            var aumento = (salarioAtual * (percentualAumento / 100)).toFixed(2);
+            var novoSalario = (salarioAtual + parseFloat(aumento)).toFixed(2);
 
-                var valorOriginal = parseFloat(prompt(" Qual e o preço de " + produto + " ? " ));
-
-                let desconto = (valorOriginal * 0.10).toFixed(2);
-                let valorComDesconto = (valorOriginal - desconto).toFixed(2);
-
-                document.getElementById("titulo").innerHTML = "Calculando desconto de 10% para " + produto + ". <br>";
-                document.getElementById("sub").innerHTML = " Voce acaba de ganhar  " + valorComDesconto + " De desconto (-10%). <br>";
-                document.getElementById("paragrafo").innerHTML = "O valor original era R$" + valorOriginal.toFixed(2) + ", mas com o desconto de 10%, fica R$" + valorComDesconto;
-
-               
-
-            }
-
-            
-            
-            
+            document.getElementById("titulo").innerHTML = nome + " recebeu um aumento salarial!<br>";
+            document.getElementById("sub").innerHTML = "O salário atual era R$ " + salarioAtual.toFixed(2) + ".<br>";
+            document.getElementById("paragrafo").innerHTML = "Com um aumento de " + percentualAumento + "%, o salário vai aumentar R$ " + aumento + ", e o novo salário será de R$ " + novoSalario + " no próximo mês.";
+        }
     </script>
-
 </head>
 <body>
-    
     <h1 id="titulo"></h1>
     <p id="sub"></p>
     <p id="paragrafo"></p>
-
-     <button onclick="Desc()">Desconto de 10%</button>
-
+    <button onclick="calcularReajuste()">Reajustar Salário</button>
 </body>
 </html>
-

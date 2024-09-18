@@ -2,20 +2,25 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <h2>Calcular Reajuste Salarial</h2>
-    <p id="resultado"></p>
-    
+    <title>Desconto</title>
     <script>
-        function calcularReajuste(salario, percentual) {
-            var reajuste = salario * (percentual / 100);
-            var novoSalario = salario + reajuste;
-            return novoSalario;
+        function Desc() {
+            var produto = prompt("Que produto você está comprando?");
+            var valorOriginal = parseFloat(prompt("Qual é o preço de " + produto + "?"));
+
+            var desconto = (valorOriginal * 0.10).toFixed(2);
+            var valorComDesconto = (valorOriginal - parseFloat(desconto)).toFixed(2);
+
+            document.getElementById("titulo").innerHTML = "Calculando desconto de 10% para " + produto + ".<br>";
+            document.getElementById("sub").innerHTML = "Você acaba de ganhar R$ " + desconto + " de desconto (-10%).<br>";
+            document.getElementById("paragrafo").innerHTML = "O valor original era R$ " + valorOriginal.toFixed(2) + ", mas com o desconto de 10%, fica R$ " + valorComDesconto + ".";
         }
-    
-        var salario = parseFloat(prompt("Digite o salário atual:"));
-        var percentual = 10; 
-        var novoSalario = calcularReajuste(salario, percentual);
-        document.getElementById('resultado').innerText = 'Novo Salário: R$ ' + novoSalario.toFixed(2);
-        
     </script>
-    
+</head>
+<body>
+    <h1 id="titulo"></h1>
+    <p id="sub"></p>
+    <p id="paragrafo"></p>
+    <button onclick="Desc()">Desconto de 10%</button>
+</body>
+</html>

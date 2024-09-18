@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Resolvendo Bhaskara</title>
+    <script>
+        function calcularBhaskara() {
+            var a = parseFloat(prompt("Digite o valor de a:"));
+            var b = parseFloat(prompt("Digite o valor de b:"));
+            var c = parseFloat(prompt("Digite o valor de c:"));
+
+            var delta = (b * b) - (4 * a * c);
+            var raizDelta = Math.sqrt(delta);
+
+            if (delta < 0) {
+                document.getElementById("resultado").innerHTML = "A equação não possui raízes reais.<br>";
+            } else {
+                var x1 = ((-b + raizDelta) / (2 * a)).toFixed(2);
+                var x2 = ((-b - raizDelta) / (2 * a)).toFixed(2);
+
+                document.getElementById("resultado").innerHTML = 
+                    "A equação atual é " + a + "x² + " + b + "x + " + c + " = 0.<br>" +
+                    "O cálculo realizado será Δ = " + b + "² - 4 * " + a + " * " + c + ".<br>" +
+                    "O valor calculado foi: Δ = " + delta + ".";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Resolvendo Bhaskara</h1>
+    <button onclick="calcularBhaskara()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+</html>

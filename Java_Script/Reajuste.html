@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 
 <head>
-
     <title>Document</title>
-        <script>
-            function iniciar(){
-                let nome = prompt("Qual e o nome do funcionario ")
+            <script>
+                function Iniciar(){
+                    var Nome = prompt("Qual e o nome do funcionario?");
+                    var Salario = prompt("Qual e o salario de "+ Nome +"?");
+                    var Rejuste = prompt("O salario de "+ Nome + "vai ser rejustado em qual porcentagem? ");
 
-                
-            }
-        </script>
+                }
+            </script>
 </head>
 <body>
-        <button onclick="iniciar">Reajustar Salario</button>
+    <h1>Rejuste salarial</h1>
+    <h2>Pedro paulo recebeu um aumento salarial!</h2>
+    <p id="sub"></p>
+    <p id=""></p>
+    <button onclick="Iniciar()">Rejustar salario</button>
 </body>
 </html>
