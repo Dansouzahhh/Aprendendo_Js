@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-
     <title>Calculadora-IMC</title>
     <style>
-        
         fieldset {
             padding: 50px;
             margin: 150px;
@@ -13,37 +11,58 @@
             border-radius: 25px;
         }
 
-        button {
-            width: 150px;
+        p {
             background-color: black;
+            padding: 50px;
             color: gold;
+            border-radius: 15px;
+            margin: 12px;
         }
-    
 
+        /* Css da Calculadora de IMC */
         button {
             width: 150px;
             background-color: black;
             color: gold;
+            
         }
     </style>
+
+    <script>
+        function calcularIMC() {
+            const nome = document.getElementById('nome').value;
+            const altura = parseFloat(document.getElementById('altura').value.replace(',', '.'));
+            const peso = parseFloat(document.getElementById('peso').value.replace(',', '.'));
+
+            const imc = peso / (altura * altura);
+            const classificacao = imc < 18.5 ? 'Abaixo do peso' :
+                imc < 24.9 ? 'Peso normal' :
+                    imc < 29.9 ? 'Sobrepeso' : 'Obesidade';
+
+            document.getElementById('resultado').innerText = `${nome}, seu IMC e ${imc.toFixed(2)} (${classificacao})`;
+        }
+    </script>
 </head>
 
 <body>
     <form>
         <fieldset>
-
-            <h1>Calculadora-IMC</h1>
+            <h1>Calculadora de IMC</h1>
             <hr>
-            <label for="Nome">Nome:</label>
-            <input type="text"><br> <br>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome"><br><br>
 
-            <label for="Altura">Altura:</label>
-            <input type="number"><br> <br>
+            <label for="altura">Altura (m):</label>
+            <input type="number" id="altura" step="0.01"><br><br>
 
-            <label for="Peso">Peso:</label>
-            <input type="number" min=""><br> <br>
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" step="0.1"><br><br>
 
-            <button>Calcular</button>
+            <button type="button" onclick="calcularIMC()">Calcular</button>
+
+            <div>
+                <p id="resultado"></p>
+            </div>
 
         </fieldset>
     </form>
